@@ -18,4 +18,9 @@ public class SayHelloController {
     public String sayHelloJsp(){
         return "SayHello";
     }
+
+    @RequestMapping("/login")
+    public String loginJsp(){
+        return "Login";
+    }
 }
