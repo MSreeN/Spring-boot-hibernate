@@ -3,6 +3,7 @@
 <title>jsp file</title>
 </head>
 <body>
+<pre>${error}</pre>
 <form method="post">
 <input type = "text" placeholder = "enter username" name = "username">
 <input type = "text" placeholder = "enter password" name = "password">
