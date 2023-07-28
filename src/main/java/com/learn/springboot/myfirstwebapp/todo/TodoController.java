@@ -13,7 +13,7 @@ public class TodoController {
     private TodoService todoService;
 
     @GetMapping("listTodo")
-    public String getTodoByUserName(@RequestParam String userName, ModelMap todo){
+    public String getTodoByUserName(ModelMap todo){
         todo.put("todos",todoService.findByUserName("Sree"));
         return "Todos";
     }
