@@ -3,13 +3,13 @@ package com.learn.springboot.myfirstwebapp.Hello;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.learn.springboot.myfirstwebapp.login.AuthenticationService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@SessionAttributes("name")
 public class SayHelloController {
 
     @Autowired
