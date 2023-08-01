@@ -32,8 +32,9 @@ public class SayHelloController {
     }
 
     @PostMapping("/login")
-    public String goToWelcomePage(@RequestParam String username, @RequestParam String password, ModelMap params){
+    public String goToWelcomePage(@RequestParam String username, @RequestParam String password, ModelMap params, HttpSession session){
         if(authenticationService.authenticate(username, password)){
+            session.setAttribute("name", username);
             params.put("name", username);
             params.put("password", password);
             return "Welcome";

@@ -1,6 +1,7 @@
 package com.learn.springboot.myfirstwebapp.todo;
 
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,7 +16,8 @@ public class TodoController {
 
 
     @GetMapping("listTodo")
-    public String getTodoByUserName(ModelMap todo){
+    public String getTodoByUserName(ModelMap todo, HttpSession session){
+        session.getAttribute("name");
         todo.put("todos",todoService.findByUserName("Sree"));
         return "Todos";
     }
