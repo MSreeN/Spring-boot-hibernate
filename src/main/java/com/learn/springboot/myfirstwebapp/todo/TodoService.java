@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class TodoService {
 
-    private static List<Todo> todos;
+    private static final List<Todo> todos;
     static{
         todos = new ArrayList<Todo>();
         todos.add(new Todo("Sree", "complete web", LocalDate.now().plusYears(1), false));
