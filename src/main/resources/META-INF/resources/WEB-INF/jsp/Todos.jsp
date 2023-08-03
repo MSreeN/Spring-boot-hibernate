@@ -6,10 +6,8 @@
 <title>Todos</title>
 </head>
 <body>
-<p>Welcome ${name}</p>
-<p>Your todos are </p>
-<div>
-    <table>
+<div class = "container">
+    <table class = "table">
         <thead>
             <tr>
             <th>id</th>
