@@ -10,7 +10,7 @@
     <h1>Add a new todo </h1>
     <form action = "/newTodo" method="post">
     <p>Description</p>
-    <input type = "text"/>
+    <input name = "description" type = "text"/>
     <button class = "btn btn-success">Add todo</button>
     </form>
 </div>

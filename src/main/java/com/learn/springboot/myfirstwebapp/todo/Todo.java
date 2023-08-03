@@ -14,7 +14,8 @@ public class Todo {
     private LocalDate targetDate;
     private boolean done;
 
-    public Todo(String userName, String description, LocalDate targetDate, boolean done) {
+    public Todo(int index, String userName, String description, LocalDate targetDate, boolean done) {
+        this.id = index;
         this.userName = userName;
         this.description = description;
         this.targetDate = targetDate;
