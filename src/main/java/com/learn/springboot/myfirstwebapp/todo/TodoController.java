@@ -5,10 +5,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
@@ -35,6 +32,12 @@ public class TodoController {
     public String addTodo(@RequestParam String description, HttpSession session){
         todoService.addNewTodo(description, (String) session.getAttribute("name"), LocalDate.now().plusMonths(6),false);
         return "redirect:listTodo";
+    }
+
+    @RequestMapping("/deleteTodo")
+    public String deleteTodo(@RequestParam int todoId){
+        todoService.deleteTodo(todoId);
+        return "redirect:/listTodo";
     }
 
 }

@@ -1,11 +1,14 @@
 package com.learn.springboot.myfirstwebapp.todo;
 
+import org.eclipse.tags.shaded.org.apache.xpath.operations.Bool;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 @Service
 public class TodoService {
@@ -29,7 +32,8 @@ public class TodoService {
     }
 
     public void deleteTodo(int todoId){
-
+        Predicate<Todo> gonnaBeDeletedTodo = todo -> todo.getId() == todoId;
+        todos.removeIf(gonnaBeDeletedTodo);
     }
 
 }
