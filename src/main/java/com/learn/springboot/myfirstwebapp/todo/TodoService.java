@@ -1,6 +1,7 @@
 package com.learn.springboot.myfirstwebapp.todo;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -25,6 +26,10 @@ public class TodoService {
     public void addNewTodo(String description, String username, LocalDate localDate, boolean isDone){
         todos.add(new Todo(++count, username, description,localDate, isDone));
 //        return todos;
+    }
+
+    public void deleteTodo(int todoId){
+
     }
 
 }
