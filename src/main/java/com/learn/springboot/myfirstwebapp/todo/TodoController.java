@@ -40,4 +40,10 @@ public class TodoController {
         return "redirect:/listTodo";
     }
 
+    @RequestMapping("/updateTodo")
+    public String showUpdateTodoPage(@RequestParam int id, ModelMap model){
+        Todo todo = todoService.getTodoById(id);
+        model.put("todo", todo);
+        return "AddTodo";
+    }
 }

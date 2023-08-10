@@ -12,6 +12,7 @@
     <p>Description</p>
     <input name = "description" minLength = "10" type = "text"/>
     <button class = "btn btn-success">Add todo</button>
+    <p>Todo details are : ${todo}</p>
     </form>
 </div>
 <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>

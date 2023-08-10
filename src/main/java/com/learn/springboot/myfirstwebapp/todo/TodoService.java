@@ -36,4 +36,9 @@ public class TodoService {
         todos.removeIf(gonnaBeDeletedTodo);
     }
 
+    public Todo getTodoById(int id) {
+        Predicate<Todo> findTodo = todo -> todo.getId() == id;
+        Todo todo = todos.stream().filter(findTodo).findFirst().get();
+        return todo;
+    }
 }
