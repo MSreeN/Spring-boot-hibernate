@@ -24,7 +24,8 @@ public class TodoController {
     }
 
     @GetMapping("/add-todo")
-    public String showAddTodoPage(){
+    public String showAddTodoPage(HttpSession session){
+        session.setAttribute("methodUrl", "/newTodo");
         return "AddTodo";
     }
 
@@ -40,10 +41,18 @@ public class TodoController {
         return "redirect:/listTodo";
     }
 
-    @RequestMapping("/updateTodo")
-    public String showUpdateTodoPage(@RequestParam int id, ModelMap model){
+    @GetMapping("/updateTodo")
+    public String showUpdateTodoPage(@RequestParam int id, HttpSession session){
         Todo todo = todoService.getTodoById(id);
-        model.put("todo", todo);
+        session.setAttribute("todoId", id);
+        session.setAttribute("methodUrl", "/updateTodo");
+//        session.setAttribute("methodUrl", "/newTodo");
         return "AddTodo";
+    }
+
+    @PostMapping("/updateTodo")
+    public String updateTodo(@RequestParam String description, HttpSession session){
+        todoService.updateTodo((int)session.getAttribute("todoId"), description);
+        return "redirect:/listTodo";
     }
 }

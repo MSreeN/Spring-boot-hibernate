@@ -41,4 +41,9 @@ public class TodoService {
         Todo todo = todos.stream().filter(findTodo).findFirst().get();
         return todo;
     }
+
+    public void updateTodo(int todoId, String description){
+        Todo todo = getTodoById(todoId);
+        todo.setDescription(description);
+    }
 }

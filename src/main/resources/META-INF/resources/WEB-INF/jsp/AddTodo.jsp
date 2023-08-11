@@ -8,11 +8,12 @@
 <body>
 <div class = "container">
     <h1>Add a new todo </h1>
-    <form action = "/newTodo" method="post">
+    <form action = ${methodUrl} method="post">
     <p>Description</p>
     <input name = "description" minLength = "10" type = "text"/>
-    <button class = "btn btn-success">Add todo</button>
-    <p>Todo details are : ${todo}</p>
+    <button class = "btn btn-success">Done</button>
+    <p>Todo details are : ${todoId}</p>
+    <p> Url is : ${methodUrl}</p>
     </form>
 </div>
 <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
