@@ -3,6 +3,7 @@
 <title>jsp file</title>
 </head>
 <body>
+<%@ include file = "common/Navigation.jsp" %>
 <div class = "container">
 <h1>Login</h1>
 <pre>${error}</pre>

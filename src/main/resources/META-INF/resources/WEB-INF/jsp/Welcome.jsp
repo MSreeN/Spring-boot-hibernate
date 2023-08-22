@@ -3,6 +3,7 @@
 <title>jsp file</title>
 </head>
 <body>
+<%@ include file = "common/Navigation.jsp" %>
 <div class = "container">
 <p>
 <h1>Welcome ${name}</h1>

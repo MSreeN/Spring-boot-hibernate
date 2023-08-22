@@ -6,6 +6,7 @@
 <title>Todos</title>
 </head>
 <body>
+<%@ include file = "common/Navigation.jsp" %>
 <div class = "container">
     <h1>Add a new todo </h1>
     <form action = ${methodUrl} method="post">
