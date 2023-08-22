@@ -31,8 +31,8 @@ public class TodoController {
     }
 
     @PostMapping("/newTodo")
-    public String addTodo(@RequestParam String description, HttpSession session){
-        todoService.addNewTodo(description, (String) session.getAttribute("name"), LocalDate.now().plusMonths(6),false);
+    public String addTodo(@RequestParam String description,@RequestParam LocalDate targetDate, HttpSession session){
+        todoService.addNewTodo(description, (String) session.getAttribute("name"), targetDate,false);
         return "redirect:listTodo";
     }
 

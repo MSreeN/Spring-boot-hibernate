@@ -16,12 +16,10 @@
 
     <fieldset>
         <label for = "targetDate">Target Date: </label>
-        <input  name = "targetDate" type = "date"/>
+        <input name = "targetDate" type = "date" required/>
     </fieldset>
 
     <button style = "margin-top : 30px" class = "btn btn-success">Done</button>
-    <p>Todo details are : ${todoId}</p>
-    <p> Url is : ${methodUrl}</p>
 
     </form>
 </div>
