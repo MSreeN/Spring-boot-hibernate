@@ -9,11 +9,20 @@
 <div class = "container">
     <h1>Add a new todo </h1>
     <form action = ${methodUrl} method="post">
-    <p>Description</p>
-    <input name = "description" minLength = "10" type = "text"/>
-    <button class = "btn btn-success">Done</button>
+    <fieldset>
+    <label for = "description">Description: </label>
+    <input placeholder = "Enter your goal" style = "margin-bottom: 30px" name = "description" minLength = "10" type = "text"/>
+    </fieldset>
+
+    <fieldset>
+        <label for = "targetDate">Target Date: </label>
+        <input  name = "targetDate" type = "date"/>
+    </fieldset>
+
+    <button style = "margin-top : 30px" class = "btn btn-success">Done</button>
     <p>Todo details are : ${todoId}</p>
     <p> Url is : ${methodUrl}</p>
+
     </form>
 </div>
 <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>

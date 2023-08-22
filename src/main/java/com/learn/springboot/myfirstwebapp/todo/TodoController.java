@@ -3,6 +3,7 @@ package com.learn.springboot.myfirstwebapp.todo;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -51,8 +52,8 @@ public class TodoController {
     }
 
     @PostMapping("/updateTodo")
-    public String updateTodo(@RequestParam String description, HttpSession session){
-        todoService.updateTodo((int)session.getAttribute("todoId"), description);
+    public String updateTodo(@RequestParam String description, @RequestParam LocalDate targetDate, HttpSession session){
+        todoService.updateTodo((int)session.getAttribute("todoId"), description, targetDate);
         return "redirect:/listTodo";
     }
 }
