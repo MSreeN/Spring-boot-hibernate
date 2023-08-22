@@ -1,9 +1,6 @@
-<html>
-<head>
-<title>jsp file</title>
-</head>
-<body>
+
 <%@ include file = "common/Navigation.jsp" %>
+<%@ include file = "common/Header.jsp" %>
 <div class = "container">
 <p>
 <h1>Welcome ${name}</h1>

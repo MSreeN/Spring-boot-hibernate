@@ -1,8 +1,4 @@
-<html>
-<head>
-<title>jsp file</title>
-</head>
-<body>
+<%@ include file = "common/Header.jsp" %>
 <%@ include file = "common/Navigation.jsp" %>
 <div class = "container">
 <h1>Login</h1>
