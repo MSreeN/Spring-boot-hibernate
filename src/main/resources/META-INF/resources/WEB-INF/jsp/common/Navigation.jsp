@@ -2,8 +2,8 @@
         <a class="navbar-brand m-1" href="#">Todo App</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="/listTodos">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/listTodos">Todos</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/listTodo">Todos</a></li>
             </ul>
         </div>
         <ul class="navbar-nav">
