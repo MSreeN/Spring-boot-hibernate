@@ -4,6 +4,7 @@ package com.learn.springboot.myfirstwebapp.todo;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Local;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class TodoController {
 
     @GetMapping("listTodo")
     public String getTodoByUserName(ModelMap todo, HttpSession session){
-        todo.put("todos",todoService.findByUserName((String)session.getAttribute("name")));
+        todo.put("todos",todoService.findByUserName(SecurityContextHolder.getContext().getAuthentication().getName()));
 //        System.out.println("------------------------from-------------------"+modelMap.getAttribute("name"));
         return "Todos";
     }
