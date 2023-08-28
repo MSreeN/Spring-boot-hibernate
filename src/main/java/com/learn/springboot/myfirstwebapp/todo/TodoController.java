@@ -19,8 +19,8 @@ public class TodoController {
 
     @GetMapping("listTodo")
     public String getTodoByUserName(ModelMap todo, HttpSession session){
-        session.getAttribute("name"); 
-        todo.put("todos",todoService.findByUserName("Sree"));
+        todo.put("todos",todoService.findByUserName((String)session.getAttribute("name")));
+//        System.out.println("------------------------from-------------------"+modelMap.getAttribute("name"));
         return "Todos";
     }
 

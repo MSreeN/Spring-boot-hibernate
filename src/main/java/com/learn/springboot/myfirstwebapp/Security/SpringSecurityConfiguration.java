@@ -29,10 +29,10 @@ public class SpringSecurityConfiguration {
         return  new InMemoryUserDetailsManager(userDetails);
     }
 
-    public String getLoggedInUsername(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return authentication.getName();
-    }
+//    public String getLoggedInUsername(){
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        return authentication.getName();
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder(){

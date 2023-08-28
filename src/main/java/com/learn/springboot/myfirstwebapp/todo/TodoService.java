@@ -1,5 +1,6 @@
 package com.learn.springboot.myfirstwebapp.todo;
 
+import jakarta.servlet.http.HttpSession;
 import org.eclipse.tags.shaded.org.apache.xpath.operations.Bool;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @Service
 public class TodoService {
@@ -23,7 +25,9 @@ public class TodoService {
     }
 
     public List<Todo> findByUserName(String userName){
-        return todos;
+        Predicate<Todo> findTodoByUserName =
+                todo -> todo.getUserName().equalsIgnoreCase(userName);
+        return todos.stream().filter(findTodoByUserName).collect(Collectors.toList());
     }
 
     public void addNewTodo(String description, String username, LocalDate localDate, boolean isDone){
