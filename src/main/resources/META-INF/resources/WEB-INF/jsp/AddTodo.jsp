@@ -13,9 +13,12 @@
         <input name = "targetDate" type = "date" required/>
     </fieldset>
 
-    <button style = "margin-top : 30px" class = "btn btn-success">Done</button>
+    <button type = "submit" style = "margin-top : 30px" class = "btn btn-success">Done</button>
 
     </form>
+
+    <p> ${methodUrl} </p>
+    <p> ${todoId} </p>
 </div>
 <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 <script src="webjars/jquery/3.6.0/jquery.min.js"></script>

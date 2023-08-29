@@ -4,6 +4,7 @@ package com.learn.springboot.myfirstwebapp.todo;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Local;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -33,7 +34,7 @@ public class TodoController {
 
     @PostMapping("/newTodo")
     public String addTodo(@RequestParam String description,@RequestParam LocalDate targetDate, HttpSession session){
-        todoService.addNewTodo(description, (String) session.getAttribute("name"), targetDate,false);
+        todoService.addNewTodo(description, SecurityContextHolder.getContext().getAuthentication().getName(), targetDate,false);
         return "redirect:listTodo";
     }
 
@@ -43,9 +44,10 @@ public class TodoController {
         return "redirect:/listTodo";
     }
 
-    @GetMapping("/updateTodo")
-    public String showUpdateTodoPage(@RequestParam int id, HttpSession session){
+    @RequestMapping("/updateTodo")
+    public String showUpdateTodoPage(@RequestParam Integer id, HttpSession session){
         Todo todo = todoService.getTodoById(id);
+        System.out.println(id.getClass());
         session.setAttribute("todoId", id);
         session.setAttribute("methodUrl", "/updateTodo");
 //        session.setAttribute("methodUrl", "/newTodo");
@@ -55,6 +57,7 @@ public class TodoController {
     @PostMapping("/updateTodo")
     public String updateTodo(@RequestParam String description, @RequestParam LocalDate targetDate, HttpSession session){
         todoService.updateTodo((int)session.getAttribute("todoId"), description, targetDate);
+        System.out.println("-----------------------------post update todo");
         return "redirect:/listTodo";
     }
 }
