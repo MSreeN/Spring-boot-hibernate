@@ -1,5 +1,6 @@
 package com.learn.springboot.myfirstwebapp.todo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ public class Todo {
 
 	@Id
     private int id;
+    @Column(name = "name")
     private String userName;
     private String description;
     private LocalDate targetDate;
