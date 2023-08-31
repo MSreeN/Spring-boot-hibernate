@@ -1,13 +1,15 @@
 package com.learn.springboot.myfirstwebapp.todo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
-@Component
+@Entity
 public class Todo {
 
-	
+	@Id
     private int id;
     private String userName;
     private String description;
