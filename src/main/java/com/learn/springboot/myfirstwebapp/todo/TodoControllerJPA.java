@@ -3,26 +3,32 @@ package com.learn.springboot.myfirstwebapp.todo;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 
-//@Controller
-public class TodoController {
+@Controller
+public class TodoControllerJPA {
 
     @Autowired
     private TodoService todoService;
 
+    @Autowired
+    private TodoRepository todoRepository;
+
 
     @GetMapping("listTodo")
     public String getTodoByUserName(ModelMap todo, HttpSession session){
-        todo.put("todos",todoService.findByUserName(SecurityContextHolder.getContext().getAuthentication().getName()));
+//        todo.put("todos",todoService.findByUserName(SecurityContextHolder.getContext().getAuthentication().getName()));
 //        System.out.println("------------------------from-------------------"+modelMap.getAttribute("name"));
+
+        todo.put("todos",todoRepository.findByUserName(SecurityContextHolder.getContext().getAuthentication().getName()));
         return "Todos";
     }
 
