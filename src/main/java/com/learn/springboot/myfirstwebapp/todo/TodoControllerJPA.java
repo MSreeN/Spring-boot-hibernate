@@ -48,13 +48,14 @@ public class TodoControllerJPA {
 
     @RequestMapping("/deleteTodo")
     public String deleteTodo(@RequestParam int todoId){
-        todoService.deleteTodo(todoId);
+//        todoService.deleteTodo(todoId);
+        todoRepository.deleteById(todoId);
         return "redirect:/listTodo";
     }
 
     @RequestMapping("/updateTodo")
     public String showUpdateTodoPage(@RequestParam Integer id, HttpSession session){
-        Todo todo = todoService.getTodoById(id);
+//        Todo todo = todoRepository.findById(id).get();
         System.out.println(id.getClass());
         session.setAttribute("todoId", id);
         session.setAttribute("methodUrl", "/updateTodo");
@@ -64,8 +65,13 @@ public class TodoControllerJPA {
 
     @PostMapping("/updateTodo")
     public String updateTodo(@RequestParam String description, @RequestParam LocalDate targetDate, HttpSession session){
-        todoService.updateTodo((int)session.getAttribute("todoId"), description, targetDate);
-        System.out.println("-----------------------------post update todo");
+//        todoService.updateTodo((int)session.getAttribute("todoId"), description, targetDate);
+            Todo todo = todoRepository.findById((int) session.getAttribute("todoId")).get();
+            todo.setDescription(description);
+            todo.setTargetDate(targetDate);
+            todoRepository.save(todo);
+//        todoRepository.save(new Todo(SecurityContextHolder.getContext().getAuthentication().getName(),description, targetDate, false));
+//        System.out.println("-----------------------------post update todo");
         return "redirect:/listTodo";
     }
 }
