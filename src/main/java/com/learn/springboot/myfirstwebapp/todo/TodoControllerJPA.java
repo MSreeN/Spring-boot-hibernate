@@ -40,7 +40,9 @@ public class TodoControllerJPA {
 
     @PostMapping("/newTodo")
     public String addTodo(@RequestParam String description,@RequestParam LocalDate targetDate, HttpSession session){
-        todoService.addNewTodo(description, SecurityContextHolder.getContext().getAuthentication().getName(), targetDate,false);
+//        todoService.addNewTodo(description, SecurityContextHolder.getContext().getAuthentication().getName(), targetDate,false);
+        todoRepository.save(new Todo(SecurityContextHolder.getContext().getAuthentication().getName(), description,targetDate, false));
+
         return "redirect:listTodo";
     }
 

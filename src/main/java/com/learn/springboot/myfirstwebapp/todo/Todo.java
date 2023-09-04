@@ -1,9 +1,8 @@
 package com.learn.springboot.myfirstwebapp.todo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.LocalDate;
 
@@ -11,6 +10,15 @@ import java.time.LocalDate;
 public class Todo {
 
 	@Id
+    @SequenceGenerator(
+            name = "todoId",
+            sequenceName = "todoId",
+            initialValue = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "todoId"
+    )
     private int id;
     @Column(name = "name")
     private String userName;
@@ -18,8 +26,8 @@ public class Todo {
     private LocalDate targetDate;
     private boolean done;
 
-    public Todo(int index, String userName, String description, LocalDate targetDate, boolean done) {
-        this.id = index;
+    public Todo( String userName, String description, LocalDate targetDate, boolean done) {
+//        this.id = index;
         this.userName = userName;
         this.description = description;
         this.targetDate = targetDate;
